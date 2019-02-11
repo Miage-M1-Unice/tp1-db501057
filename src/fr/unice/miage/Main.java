@@ -2,7 +2,7 @@ package fr.unice.miage;
 
 import java.io.File;
 
-public class Main {
+public class Main implements FiltertFile {
 
 
     public void getRepository(){

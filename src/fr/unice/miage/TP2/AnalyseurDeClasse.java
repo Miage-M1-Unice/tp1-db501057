@@ -8,15 +8,17 @@
 
 import java.lang.reflect.*;
 import java.io.*;
+import java.util.jar.Attributes;
 
 public class AnalyseurDeClasse {
 
   public static void analyseClasse(String nomClasse) throws ClassNotFoundException {
     // Récupération d'un objet de type Class correspondant au nom passé en
     // paramètres
-    Class cl = // CODE A ECRIRE !
+    ClassLoader classLoader = AnalyseurDeClasse.class.getClassLoader();
+    Class cl = classLoader.loadClass(nomClasse);
 
-        afficheEnTeteClasse(cl);
+    afficheEnTeteClasse(cl);
 
     System.out.println();
     afficheAttributs(cl);
@@ -33,7 +35,7 @@ public class AnalyseurDeClasse {
 
   /** Retourne la classe dont le nom est passé en paramètre */
   public static Class getClasse(String nomClasse) throws ClassNotFoundException {
-    // CODE A ECRIRE
+    return nomClasse.getClass();
   }
 
   /**
@@ -45,36 +47,41 @@ public class AnalyseurDeClasse {
     // CODE A ECRIRE
 
     // Récupération de la superclasse si elle existe (null si cl est le type Object)
-    Class supercl = // CODE A ECRIRE
+    Class supercl = cl.getSuperclass();
+      System.out.println("The super class is " + supercl);
 
-        // On ecrit le "extends " que si la superclasse est non nulle et
-        // différente de Object
-        // CODE A ECRIRE
+    // On ecrit le "extends " que si la superclasse est non nulle et
+    // différente de Object
+    // CODE A ECRIRE
 
-        // Affichage des interfaces que la classe implemente
-        // CODE A ECRIRE
+    // Affichage des interfaces que la classe implemente
+    // CODE A ECRIRE
 
-        // Enfin, l'accolade ouvrante !
-        System.out.print(" {\n");
+    // Enfin, l'accolade ouvrante !
+    System.out.print(" {\n");
   }
 
   public static void afficheAttributs(Class cl) {
-    // CODE A ECRIRE
+    Field[] attributes = cl.getFields();
+    for (int i = 0; i < attributes.length; i++){
+      System.out.println(attributes[i]);
+    }
   }
 
   public static void afficheConstructeurs(Class cl) {
-    // CODE A ECRIRE
+    Constructor[] constructors = cl.getConstructors();
+    for (int i = 0; i < constructors.length; i++){
+      System.out.println(constructors[i]);
+    }
     System.out.println("{}");
-
-  }
-
   }
 
   public static void afficheMethodes(Class cl) {
-    // CODE A ECRIRE
+    Method[] methods = cl.getMethods();
+    for (int i = 0; i < methods.length; i++){
+      System.out.println(methods[i]);
+    }
     System.out.println("{}");
-  }
-
   }
 
   public static String litChaineAuClavier() throws IOException {

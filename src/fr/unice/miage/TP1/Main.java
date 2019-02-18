@@ -1,8 +1,20 @@
 package fr.unice.miage;
 
 import java.io.File;
+import java.io.FileFilter;
 
 public class Main {
+
+
+    public class FilterFileInterne implements FileFilter {
+        @Override
+        public boolean accept(File dir, String name) {
+            String fileName = dir.getName();
+            String[] splitName = fileName.split("\\.");
+            String fileExtension = splitName[splitName.length - 1];
+            return fileExtension.equals(name);
+        }
+    }
 
 
     public void getRepository(){

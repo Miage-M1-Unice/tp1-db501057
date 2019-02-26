@@ -1,9 +1,9 @@
-package fr.unice.miage;
+package fr.unice.miage.TP1;
 
 import java.io.File;
 import java.io.FileFilter;
 
-public class Main {
+/*public class Main {
 
 
     public class FilterFileInterne implements FileFilter {
@@ -39,11 +39,11 @@ public class Main {
             }
         }
     }
+*/
 
-
-    public static void main(String[] args){
+    /*public static void main(String[] args){
         Main main = new Main();
         main.getRepoContentRecu("./");
-    }
+    }*/
 
-}
+//}

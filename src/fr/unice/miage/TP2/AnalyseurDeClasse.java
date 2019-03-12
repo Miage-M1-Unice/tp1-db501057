@@ -97,7 +97,7 @@ public class AnalyseurDeClasse {
         return br.readLine();
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         boolean ok = false;
 
         while (!ok) {
@@ -114,5 +114,5 @@ public class AnalyseurDeClasse {
                 System.out.println("Erreur d'E/S!");
             }
         }
-    }
+    }*/
 }
